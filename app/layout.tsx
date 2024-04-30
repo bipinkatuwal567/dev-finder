@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/mode-toggler";
+import Providers from "./provider";
+import Header from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,17 +21,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Providers>
         <ThemeProvider
         attribute="class"
         defaultTheme="system"
         enableSystem
         disableTransitionOnChange
         >
-          <div className="w-full mx-auto">
-            <ModeToggle />
-          </div>
+          <Header />
         {children}
-        </ThemeProvider>
+        </ThemeProvider>x
+        </Providers>
       </body>
     </html>
   );
